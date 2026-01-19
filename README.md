@@ -1,46 +1,67 @@
-# Astro Starter Kit: Basics
+# 🏞️ Caltrucafort - Casa Rural con Restaurante
 
-```sh
-npm create astro@latest -- --template basics
+Sitio web moderno y multiidioma para Caltrucafort, una casa de campo con restaurante y servicio de habitaciones por noche.
+
+## 🌐 Características Principales
+
+- ✅ **Multiidioma**: Soporte completo para Español, Inglés y Catalán
+- ✅ **SEO Optimizado**: Sitemap, robots.txt, meta tags y Open Graph
+- ✅ **Responsive**: Diseño completamente adaptable a todos los dispositivos
+- ✅ **Rendimiento**: Optimizado para velocidad de carga
+- ✅ **Accesibilidad**: Cumple con estándares WCAG
+- ✅ **Menú de Navegación**: Selector de idioma integrado
+- ✅ **Diseño Moderno**: Basado en componentes Astro
+
+## 📁 Estructura del Proyecto
+
+```
+src/
+├── components/
+│   └── Navigation.astro      # Navegación con selector de idioma
+├── layouts/
+│   └── Layout.astro          # Layout principal con footer
+├── pages/
+│   ├── index.astro           # Redirección a /es/
+│   ├── es/, en/, ca/         # Páginas por idioma
+├── styles/
+│   └── global.css            # Estilos globales y variables CSS
+└── i18n.ts                   # Sistema de traducciones
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🚀 Instalación y Uso
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+```bash
+npm install
+npm run dev
+npm run build
+npm run preview
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🎨 Estilos
 
-## 🧞 Commands
+Sistema de variables CSS coherente con colores, espaciado, tipografía y componentes reutilizables.
 
-All commands are run from the root of the project, from a terminal:
+## 🌍 Multiidioma
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Sistema completo de traducciones con soporte para español, inglés y catalán usando `src/i18n.ts`.
 
-## 👀 Want to learn more?
+## 🔍 SEO Optimizado
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Meta tags dinámicos
+- Open Graph
+- Sitemap.xml automático
+- robots.txt
+- hreflang para multiidioma
+- URLs semánticas
+
+## 📱 Responsive Design
+
+Diseño completamente responsive con breakpoints en 768px y 480px.
+
+## 👥 Autor
+
+Creado para Caltrucafort - Casa Rural y Restaurante
+
+---
+
+**Versión**: 1.0.0

@@ -1,0 +1,139 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { useTranslation } from '../../i18n';
+import { Image } from 'astro:assets';
+import siurana_portada from '../../assets/siurana_portada.jpg';
+import rock_climbing from '../../assets/rock-climbing.jpg';
+import gastronomia_local from '../../assets/grilled-food.jpg';
+import llardafoc from '../../assets/zona-privada-1.jpg';
+
+const t = useTranslation('en');
+---
+
+<Layout 
+  lang="en"
+  title="Caltrucafort - Rural House with Restaurant"
+  description={t('meta.description')}
+>
+  <div class="container">
+    <!-- HERO PRINCIPAL -->
+    <section class="hero">
+      <Image 
+        src={siurana_portada} 
+        alt="Siurana - Caltrucafort"
+        width={1920}
+        height={1080}
+        class="hero-image"
+        fetchpriority="high"
+      />
+      <div class="hero-content">
+        <h1>{t('home.heroTitle')}</h1>
+        <p>{t('home.heroSubtitle')}</p>
+      </div>
+    </section>
+
+    <!-- SECCIÓN BIENVENIDA -->
+    <section class="section-light text-center">
+      <h2>{t('home.welcomeTitle')}</h2>
+      <p style="max-width: 800px; margin: 0 auto;">{t('home.welcomeText')}</p>
+    </section>
+
+    <!-- SERVICIOS PRINCIPALES -->
+    <section class="py-xl">
+      <div class="grid grid-3">
+        <a href="/en/rooms" class="card service-card">
+            <Image 
+              src={llardafoc} 
+              alt={t('home.serviceRooms')}
+              width={900}
+              height={600}
+              class="card-image"
+              loading="lazy"
+            />
+          <div class="card-content">
+            <h3>{t('home.serviceRooms')}</h3>
+            <p>{t('home.serviceRoomsText')}</p>
+          </div>
+        </a>
+
+        <a href="/en/cuisine" class="card service-card">
+          <Image 
+            src={gastronomia_local} 
+            alt={t('home.serviceCuisine')}
+            width={900}
+            height={600}
+            class="card-image"
+            loading="lazy"
+          />
+          <div class="card-content">
+            <h3>{t('home.serviceCuisine')}</h3>
+            <p>{t('home.serviceCuisineText')}</p>
+          </div>
+        </a>
+
+        <a href="/en/activities" class="card service-card">
+          <Image 
+            src={rock_climbing} 
+            alt={t('home.serviceActivities')}
+            width={900}
+            height={600}
+            class="card-image"
+            loading="lazy"
+          />
+          <div class="card-content">
+            <h3>{t('home.serviceActivities')}</h3>
+            <p>{t('home.serviceActivitiesText')}</p>
+          </div>
+        </a>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .hero {
+    position: relative;
+    overflow: hidden;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    filter: brightness(0.7);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+  }
+
+  .service-card {
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .service-card:hover {
+    text-decoration: none;
+  }
+
+  .service-card .card-content h3 {
+    margin-bottom: 10px;
+  }
+
+  .service-card .card-content p {
+    color: #666;
+    font-size: 14px;
+  }
+</style>

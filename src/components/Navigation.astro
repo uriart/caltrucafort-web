@@ -1,0 +1,366 @@
+---
+import { languages, defaultLanguage } from '../i18n';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = defaultLanguage } = Astro.props as Props;
+const currentLang = languages[lang as keyof typeof languages] ? lang : defaultLanguage;
+
+const menuItems = [
+  { key: 'home', href: `/${currentLang}/` },
+  { key: 'rooms', href: `/${currentLang}/rooms` },
+  { key: 'cuisine', href: `/${currentLang}/cuisine` },
+  { key: 'activities', href: `/${currentLang}/activities` },
+  { key: 'contact', href: `/${currentLang}/contact` }
+];
+
+const navLabels: Record<string, Record<string, string>> = {
+  es: { home: 'Inicio', rooms: 'Habitaciones', cuisine: 'Gastronomía', activities: 'Actividades', contact: 'Contacto' },
+  en: { home: 'Home', rooms: 'Rooms', cuisine: 'Cuisine', activities: 'Activities', contact: 'Contact' },
+  ca: { home: 'Inici', rooms: 'Habitacions', cuisine: 'Gastronomia', activities: 'Activitats', contact: 'Contacte' }
+};
+
+
+---
+
+<header class="navbar">
+  <div class="container">
+    <nav class="nav-wrapper">
+      <div class="nav-brand">
+        <a href={`/${currentLang}/`} class="logo">
+          <span class="logo-text">Caltrucafort</span>
+        </a>
+      </div>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-menu" id="navMenu">
+        <ul class="nav-list">
+          {menuItems.map(item => (
+            <li class="nav-item">
+              <a href={item.href} class="nav-link">
+                {navLabels[currentLang][item.key]}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <div class="nav-language">
+          <select id="langSelect" aria-label="Select language">
+            {Object.entries(languages).map(([code, name]) => (
+              <option value={code} selected={code === currentLang}>
+                {name}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<style>
+  :root {
+    --navbar-height: 80px;
+    --navbar-bg: #fdf5e6;
+    --navbar-text: #121212;
+    --navbar-primary: #8b0000;
+  }
+
+  .navbar {
+    background-color: var(--navbar-bg);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: var(--navbar-height);
+    display: flex;
+    align-items: center;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .nav-brand {
+    flex-shrink: 0;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .logo-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--navbar-primary);
+    letter-spacing: 1px;
+  }
+
+  .logo:hover .logo-text {
+    color: #a60000;
+  }
+
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    gap: 5px;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+  }
+
+  .nav-toggle:hover {
+    background-color: rgba(139, 0, 0, 0.1);
+  }
+
+  .nav-toggle span {
+    width: 22px;
+    height: 2.5px;
+    background-color: var(--navbar-text);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .nav-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .nav-list {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-item {
+    margin: 0;
+  }
+
+  .nav-link {
+    color: var(--navbar-text);
+    text-decoration: none;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-bottom: 5px;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--navbar-primary);
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover {
+    color: var(--navbar-primary);
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  .nav-language {
+    flex-shrink: 0;
+    margin-left: 20px;
+  }
+
+  #langSelect {
+    padding: 8px 12px;
+    border: 2px solid var(--navbar-primary);
+    border-radius: 8px;
+    background-color: white;
+    color: var(--navbar-text);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  #langSelect:hover {
+    background-color: var(--navbar-primary);
+    color: white;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .nav-wrapper {
+      position: relative;
+    }
+
+    .nav-toggle {
+      display: flex;
+      margin-left: auto;
+    }
+
+    .nav-menu {
+      position: absolute;
+      top: var(--navbar-height);
+      left: 0;
+      right: 0;
+      background-color: var(--navbar-bg);
+      flex-direction: column;
+      gap: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      border-bottom: 1px solid #e0e0e0;
+      order: unset;
+      flex: unset;
+      justify-content: unset;
+    }
+
+    .nav-menu.active {
+      max-height: 400px;
+    }
+
+    .nav-list {
+      flex-direction: column;
+      gap: 0;
+      width: 100%;
+    }
+
+    .nav-item {
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .nav-link {
+      display: block;
+      padding: 15px 24px;
+      font-size: 16px;
+    }
+
+    .nav-link::after {
+      display: none;
+    }
+
+    .nav-language {
+      padding: 15px 24px;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    #langSelect {
+      width: 100%;
+    }
+
+    .logo-text {
+      font-size: 24px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .nav-toggle span {
+      width: 22px;
+      height: 2.5px;
+    }
+
+    .nav-link {
+      font-size: 14px;
+    }
+
+    .logo-text {
+      font-size: 20px;
+    }
+
+
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    const langSelect = document.getElementById('langSelect') as HTMLSelectElement;
+
+    if (navToggle && navMenu) {
+      navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+      });
+
+      // Cerrar menú cuando se hace clic en un enlace
+      const navLinks = navMenu.querySelectorAll('.nav-link');
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          navToggle.classList.remove('active');
+          navMenu.classList.remove('active');
+        });
+      });
+    }
+
+    // Manejar cambio de idioma
+    if (langSelect) {
+      langSelect.addEventListener('change', (e) => {
+        const selectedLang = (e.target as HTMLSelectElement).value;
+        const currentPath = window.location.pathname;
+        
+        // Extrae el idioma actual de la ruta
+        const pathParts = currentPath.split('/').filter(p => p);
+        const currentLangInPath = pathParts[0];
+        
+        // Construye la nueva ruta reemplazando el idioma
+        let newPath = currentPath.replace(`/${currentLangInPath}`, `/${selectedLang}`);
+        
+        // Si la ruta no tiene idioma, lo añade
+        if (!newPath.startsWith(`/${selectedLang}`)) {
+          newPath = `/${selectedLang}${currentPath === '/' ? '' : currentPath}`;
+        }
+        
+        window.location.href = newPath;
+      });
+    }
+  });
+</script>

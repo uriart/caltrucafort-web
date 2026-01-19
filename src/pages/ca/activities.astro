@@ -1,0 +1,295 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { useTranslation } from '../../i18n';
+import { Image } from 'astro:assets';
+import activitats_portada from '../../assets/rock-climbing.jpg';
+
+const t = useTranslation('ca');
+---
+
+<Layout lang="ca" title="Activitats - Caltrucafort" description={t('activities.description')}>
+  <div class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <Image 
+        src={activitats_portada} 
+        alt="Activitats - Escalada"
+        width={1920}
+        height={1080}
+        class="hero-image"
+        fetchpriority="high"
+      />
+      <div class="hero-content">
+        <h1>{t('activities.title')}</h1>
+        <p>{t('activities.subtitle')}</p>
+      </div>
+    </section>
+
+    <!-- Description Section -->
+    <section class="section-light text-center mb-2xl">
+      <p class="description-text">{t('activities.description')}</p>
+    </section>
+
+    <!-- Activities Section -->
+    <section class="py-xl activities-main">
+      <div class="seccion-actividad">
+        <div class="texto-bloque">
+          <p>La comarca del <strong>Priorat</strong> és la terra per excel·lència del vi i l'oli de oliva. Si us interessa el turisme gastronòmic o l'enoturisme, sou en el lloc idoni per descobrir cellers locals i cates úniques.</p>
+        </div>
+
+        <div class="imagen-bloque">
+          <img src="https://MyBlog-c8ewh8hmm2.live-website.com/wp-content/uploads/2023/01/wines-g169915ad1_1280.jpg">
+        </div>
+
+        <div class="amazon-card-mini">
+          <span>RECOMANACIÓ</span>
+          <img src="https://m.media-amazon.com/images/I/613odjueqPL._AC_SY741_.jpg" alt="Vi Priorat">
+          <h4>Clos Mogador 2021</h4>
+          <a href="https://amzn.to/4qs7Z9f" target="_blank" class="btn-amazon" style="background: #FF9900; color: black; padding: 10px; border-radius: 5px; text-decoration: none; font-weight: bold; display: block;">Veure a Amazon</a>
+        </div>
+      </div>
+      <div class="seccion-actividad seccion-destacada">
+        <div class="texto-bloque">
+          <p><strong>Margalef</strong>, a només 4 km, és una referència mundial per a l'<strong>escalada</strong>. Les seves parets de conglomerat atrauen escaladors de tot el planeta. Un entorn salvatge perfecte per a l'aventura.</p>
+        </div>
+
+        <div class="imagen-bloque">
+          <img src="https://MyBlog-c8ewh8hmm2.live-website.com/wp-content/uploads/2023/01/rappelling-g1aa8b4681_1280.jpg">
+        </div>
+
+        <div class="amazon-card-mini">
+          <span>EQUIPACIÓ</span>
+          <img src="https://m.media-amazon.com/images/I/61KHFeq-mPL._AC_UL320_.jpg" alt="Magnesi Escalada">
+          <h4>Pack Magnesi i Accessoris Escalada</h4>
+          <a href="https://amzn.to/4sMeyF6" target="_blank" class="btn-amazon" style="background: #FF9900; color: black; padding: 10px; border-radius: 5px; text-decoration: none; font-weight: bold; display: block;">Veure a Amazon</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="py-xl text-center cta-section">
+      <h2 class="mb-lg">Vols reservar una activitat?</h2>
+      <a href="/ca/contact" class="btn btn-primary">Contacta Ara</a>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .hero {
+    position: relative;
+    overflow: hidden;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    filter: brightness(0.7);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+  }
+
+  /* Description Text Styling */
+  .description-text {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #555;
+  }
+
+  /* Activities Main Section */
+  .activities-main {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  /* Activity Cards */
+  .seccion-actividad {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2.5rem;
+    align-items: center;
+    padding: 3rem;
+    background: #f9f9f9;
+    border-radius: 15px;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .seccion-actividad:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  }
+
+  .seccion-destacada {
+    background: linear-gradient(135deg, #f5f5f5 0%, #fff 100%);
+  }
+
+  /* Text Block */
+  .texto-bloque {
+    padding: 1.5rem 0;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #555;
+  }
+
+  .texto-bloque p {
+    margin: 0;
+  }
+
+  .texto-bloque strong {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  /* Image Block */
+  .imagen-bloque img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .imagen-bloque img:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+  }
+
+  /* Amazon Card */
+  .amazon-card-mini {
+    background: white;
+    border: 2px solid #f0f0f0;
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+  }
+
+  .amazon-card-mini:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+    border-color: var(--color-primary);
+  }
+
+  .amazon-card-mini span {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--color-primary);
+    letter-spacing: 1.5px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+
+  .amazon-card-mini img {
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+    margin: 1rem auto;
+  }
+
+  .amazon-card-mini h4 {
+    font-size: 16px;
+    margin: 1rem 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #333;
+  }
+
+  .btn-amazon {
+    display: block;
+    margin-top: 1.25rem;
+    padding: 12px 20px;
+    background: #FF9900;
+    color: black;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid #FF9900;
+  }
+
+  .btn-amazon:hover {
+    background: #e68900;
+    border-color: #e68900;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 153, 0, 0.3);
+  }
+
+  /* Button Styling */
+  .btn-primary {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: white;
+    padding: 14px 48px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid var(--color-primary);
+  }
+
+  .btn-primary:hover {
+    background-color: transparent;
+    color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(204, 0, 0, 0.2);
+  }
+
+  /* CTA Section */
+  .cta-section {
+    margin-top: 4rem;
+    padding: 3rem 0;
+  }
+
+  .cta-section h2 {
+    margin-bottom: 2rem;
+    font-size: 28px;
+    color: #333;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .seccion-actividad {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      padding: 2.5rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .seccion-actividad {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding: 1.5rem;
+    }
+
+    .activities-main {
+      gap: 2rem;
+    }
+
+    .cta-section h2 {
+      font-size: 24px;
+    }
+
+    .description-text {
+      font-size: 16px;
+    }
+  }
+</style>

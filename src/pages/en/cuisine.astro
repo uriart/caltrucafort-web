@@ -1,0 +1,287 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { useTranslation } from '../../i18n';
+import { Image } from 'astro:assets';
+import cuina from '../../assets/mediterranean-cuisine.jpg';
+import suquetPeix from '../../assets/suquet-peix.jpg';
+import cargolsLlauna from '../../assets/cargols-llauna.jpg';
+import galtes from '../../assets/galtes.jpg';
+import civetSenglar from '../../assets/civet-senglar.jpg';
+import xaiForn from '../../assets/xai-forn.jpg';
+import perdiuVinagreta from '../../assets/perdiu-vinagreta.jpg';
+
+const t = useTranslation('en');
+---
+
+<Layout lang="en" title="Cuisine - Caltrucafort" description={t('cuisine.description')}>
+  <div class="container">
+    <section class="hero">
+      <Image 
+        src={cuina} 
+        alt="Cuina Mediterrania - Caltrucafort"
+        width={1920}
+        height={1080}
+        class="hero-image"
+        fetchpriority="high"
+      />
+      <div class="hero-content">
+        <h1>{t('cuisine.title')}</h1>
+        <p>{t('cuisine.subtitle')}</p>
+      </div>
+    </section>
+
+    <section class="section-light text-center mb-2xl">
+      <p style="max-width: 800px; margin: 0 auto; font-size: 18px;">{t('cuisine.description')}</p>
+    </section>
+
+    <section class="py-xl mb-2xl">
+      <h2 class="text-center mb-lg">Our Featured Dishes</h2>
+      <div class="grid grid-3">
+        <div class="dish-card">
+          <Image class="card-image" src={suquetPeix} alt="Sequet de Pescado" width={400} height={300} loading="lazy" />
+          <div class="card-content">
+            <h3>{t('cuisine.dish1')}</h3>
+            <p>{t('cuisine.dish1Desc')}</p>
+          </div>
+        </div>
+        <div class="dish-card">
+          <Image class="card-image" src={cargolsLlauna} alt="Caracoles a la Llauna" width={400} height={300} loading="lazy" />
+          <div class="card-content">
+            <h3>{t('cuisine.dish2')}</h3>
+            <p>{t('cuisine.dish2Desc')}</p>
+          </div>
+        </div>
+        <div class="dish-card">
+          <Image class="card-image" src={galtes} alt="Carrilleras" width={400} height={300} loading="lazy" />
+          <div class="card-content">
+            <h3>{t('cuisine.dish3')}</h3>
+            <p>{t('cuisine.dish3Desc')}</p>
+          </div>
+        </div>
+        <div class="dish-card">
+          <Image class="card-image" src={civetSenglar} alt="Civet de Jabalí" width={400} height={300} loading="lazy" />
+          <div class="card-content">
+            <h3>{t('cuisine.dish4')}</h3>
+            <p>{t('cuisine.dish4Desc')}</p>
+          </div>
+        </div>
+        <div class="dish-card">
+          <Image class="card-image" src={xaiForn} alt="Cordero al Horno" width={400} height={300} loading="lazy" />
+          <div class="card-content">
+            <h3>{t('cuisine.dish5')}</h3>
+            <p>{t('cuisine.dish5Desc')}</p>
+          </div>
+        </div>
+        <div class="dish-card">
+          <Image class="card-image" src={perdiuVinagreta} alt="Perdiz a la Vinagreta" width={400} height={300} loading="lazy" />
+          <div class="card-content">
+            <h3>{t('cuisine.dish6')}</h3>
+            <p>{t('cuisine.dish6Desc')}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-xl text-center">
+      <h2 class="mb-lg">Want to reserve a table?</h2>
+      <a href="/en/contact" class="btn">Contact Restaurant</a>
+    </section>
+
+    <!-- AMAZON - BRING THE FLAVOR HOME -->
+    <section class="gourmet-amazon">
+      <h2>Bring the flavor to your home</h2>
+      <p>We select the best products so you can practice traditional recipes:</p>
+      <div class="amazon-items">
+        <div class="item-aff">
+          <img src="https://m.media-amazon.com/images/I/71y2nzq1UJL._AC_UL320_.jpg" style="width:80px; height:80px; object-fit:contain;">
+          <h4 style="font-size:14px; margin:10px 0;">Catalan Recipes</h4>
+          <a href="https://amzn.to/49HvILs" target="_blank" style="background:#FF9900; color:black; padding:10px; display:block; text-decoration:none; border-radius:5px; font-weight:bold; font-size:12px;">View on Amazon</a>
+        </div>
+        <div class="item-aff">
+          <img src="https://m.media-amazon.com/images/I/815DWslaDjL._AC_UL320_.jpg" style="width:80px; height:80px; object-fit:contain;">
+          <h4 style="font-size:14px; margin:10px 0;">Catalan Cooking Book</h4>
+          <a href="https://amzn.to/4bFzqHP" target="_blank" style="background:#FF9900; color:black; padding:10px; display:block; text-decoration:none; border-radius:5px; font-weight:bold; font-size:12px;">View on Amazon</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .hero {
+    position: relative;
+    overflow: hidden;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    z-index: 1;
+    filter: brightness(0.7);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+  }
+
+  .dish-card {
+    transition: all var(--transition-normal);
+  }
+
+  .dish-card .card-image :global(img) {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+  }
+
+  .dish-card .card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 180px;
+  }
+
+  .dish-card .price {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-top: var(--spacing-md);
+  }
+
+  .two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+  }
+
+  .features-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--spacing-lg) 0;
+  }
+
+  .features-list li {
+    padding: 10px 0;
+  }
+
+  .schedule {
+    background: white;
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+  }
+
+  .schedule-item {
+    padding: 15px 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .schedule-item:last-child {
+    border-bottom: none;
+  }
+
+  .schedule-item strong {
+    color: var(--color-primary);
+  }
+
+  .btn {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: white;
+    padding: 15px 50px;
+    border-radius: var(--radius-md);
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all var(--transition-normal);
+  }
+
+  .btn:hover {
+    background-color: #a60000;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  @media (max-width: 768px) {
+    .two-columns {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  .gourmet-amazon {
+    background: linear-gradient(135deg, #fdf5e6, #fff9f0);
+    padding: 60px 40px;
+    border-radius: 15px;
+    text-align: center;
+    margin-top: 60px;
+  }
+
+  .gourmet-amazon h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 40px;
+    color: var(--color-primary);
+    margin-bottom: 15px;
+  }
+
+  .gourmet-amazon p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 40px;
+  }
+
+  .amazon-items {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .item-aff {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    width: 200px;
+    transition: all 0.3s ease;
+  }
+
+  .item-aff:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+
+  .item-aff img {
+    margin-bottom: 15px;
+  }
+
+  .item-aff h4 {
+    font-size: 14px;
+    margin: 10px 0;
+    font-weight: 600;
+  }
+
+  .item-aff a {
+    font-size: 12px;
+    transition: all 0.3s ease;
+  }
+
+  .item-aff a:hover {
+    background: #e68900 !important;
+  }
+</style>
