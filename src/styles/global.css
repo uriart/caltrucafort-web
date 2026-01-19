@@ -3,16 +3,17 @@
    ============================================ */
 :root {
   /* Colores principales */
-  --color-primary: #8b0000; /* Granate */
-  --color-dark: #121212; /* Oscuro */
-  --color-light: #fdf5e6; /* Crema */
+  --color-primary: #8b0000;
+  --color-primary-hover: #a60000;
+  --color-dark: #121212;
+  --color-light: #fdf5e6;
   --color-white: #ffffff;
+  --color-accent: #d4a574;
   
-  /* Colores secundarios */
-  --color-accent: #d4a574; /* Dorado */
-  --color-border: #e0e0e0;
+  /* Colores de texto y bordes */
   --color-text: #333333;
   --color-text-light: #666666;
+  --color-border: #e0e0e0;
   
   /* Espaciado */
   --spacing-xs: 8px;
@@ -83,27 +84,13 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-primary);
   line-height: 1.2;
   margin-bottom: var(--spacing-md);
-}
-
-h1 {
-  font-size: var(--font-size-4xl);
   font-weight: 700;
 }
 
-h2 {
-  font-size: var(--font-size-3xl);
-  font-weight: 700;
-}
-
-h3 {
-  font-size: var(--font-size-2xl);
-  font-weight: 700;
-}
-
-h4 {
-  font-size: var(--font-size-xl);
-  font-weight: 700;
-}
+h1 { font-size: var(--font-size-4xl); }
+h2 { font-size: var(--font-size-3xl); }
+h3 { font-size: var(--font-size-2xl); }
+h4 { font-size: var(--font-size-xl); }
 
 p {
   margin-bottom: var(--spacing-md);
@@ -125,7 +112,10 @@ a:hover {
 /* ============================================
    COMPONENTES COMUNES
    ============================================ */
-button, .btn {
+
+/* Botones */
+button,
+.btn {
   background-color: var(--color-primary);
   color: var(--color-white);
   border: none;
@@ -139,17 +129,19 @@ button, .btn {
   box-shadow: var(--shadow-md);
 }
 
-button:hover, .btn:hover {
-  background-color: #a60000;
+button:hover,
+.btn:hover {
+  background-color: var(--color-primary-hover);
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
 }
 
-button:active, .btn:active {
+button:active,
+.btn:active {
   transform: translateY(0);
 }
 
-/* Inputs y formularios */
+/* Inputs, textarea y select */
 input[type="text"],
 input[type="email"],
 input[type="tel"],
@@ -166,10 +158,10 @@ select {
   background-color: var(--color-white);
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="tel"]:focus,
-input[type="date"]:focus,
+input:focus[type="text"],
+input:focus[type="email"],
+input:focus[type="tel"],
+input:focus[type="date"],
 textarea:focus,
 select:focus {
   outline: none;
@@ -230,10 +222,7 @@ textarea {
 .hero::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background: rgba(0, 0, 0, 0.4);
   z-index: 1;
 }
@@ -320,34 +309,32 @@ textarea {
 /* ============================================
    UTILIDADES
    ============================================ */
-.text-center {
-  text-align: center;
-}
 
-.text-right {
-  text-align: right;
-}
+/* Alineación de texto */
+.text-center { text-align: center; }
+.text-right { text-align: right; }
 
+/* Márgenes superiores */
 .mt-sm { margin-top: var(--spacing-sm); }
 .mt-md { margin-top: var(--spacing-md); }
 .mt-lg { margin-top: var(--spacing-lg); }
 .mt-xl { margin-top: var(--spacing-xl); }
 .mt-2xl { margin-top: var(--spacing-2xl); }
 
+/* Márgenes inferiores */
 .mb-sm { margin-bottom: var(--spacing-sm); }
 .mb-md { margin-bottom: var(--spacing-md); }
 .mb-lg { margin-bottom: var(--spacing-lg); }
 .mb-xl { margin-bottom: var(--spacing-xl); }
 .mb-2xl { margin-bottom: var(--spacing-2xl); }
 
+/* Padding vertical */
 .py-lg { padding: var(--spacing-lg) 0; }
 .py-xl { padding: var(--spacing-xl) 0; }
 
+/* Opacidad y visibilidad */
 .opacity-75 { opacity: 0.75; }
-
-.hidden {
-  display: none !important;
-}
+.hidden { display: none !important; }
 
 /* ============================================
    RESPONSIVE
@@ -375,7 +362,8 @@ textarea {
     grid-template-columns: 1fr;
   }
 
-  button, .btn {
+  button,
+  .btn {
     width: 100%;
   }
 }
