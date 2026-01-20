@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import { useTranslation } from '../../i18n';
 import { Image } from 'astro:assets';
 import portal from '../../assets/portal.png';
+import whatsappIcon from '../../assets/WhatsApp_icon.png';
 
 const t = useTranslation('en');
 ---
@@ -30,19 +31,31 @@ const t = useTranslation('en');
           <p style="font-size: 12px; color: #999;"></p>
         </div>
         <div class="contact-card">
+          <Image 
+            src={whatsappIcon} 
+            alt="WhatsApp"
+            width={60}
+            height={60}
+            class="contact-icon-img"
+          />
+          <h3>WhatsApp</h3>
+          <p><a href="https://wa.me/34686989585" target="_blank" rel="noopener">686 98 95 85</a></p>
+          <p style="font-size: 12px; color: #999;"></p>
+        </div>
+        <div class="contact-card">
           <span class="contact-icon">📞</span>
           <h3>{t('contact.phoneCall')}</h3>
           <p><a href="tel:+34977819374">977 81 93 74</a></p>
-          <p><a href="tel:+34686989585">686 98 95 85</a></p>
           <p style="font-size: 12px; color: #999;"></p>
         </div>
+      </div>
+      <div class="grid grid-3" style="margin-top: var(--spacing-xl);">
         <div class="contact-card">
           <span class="contact-icon">📍</span>
           <h3>{t('contact.location')}</h3>
           <p>{t('contact.address')}<br />{t('contact.addressCity')}</p>
           <p style="font-size: 12px; color: #999;">Spain</p>
         </div>
-      </div>
       </div>
     </section>
 
@@ -86,6 +99,7 @@ const t = useTranslation('en');
   }
 
   .contact-icon { font-size: 50px; display: block; margin-bottom: 15px; }
+  .contact-icon-img { display: block; margin: 0 auto 15px; }
   .contact-card { background: white; padding: var(--spacing-lg); border-radius: var(--radius-md); text-align: center; box-shadow: var(--shadow-md); border: 1px solid var(--color-border); transition: all var(--transition-normal); }
   .contact-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
   .contact-card h3 { margin-bottom: 10px; font-size: 20px; }

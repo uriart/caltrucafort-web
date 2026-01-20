@@ -103,6 +103,7 @@ export const translations = {
       phoneCall: 'Llámanos',
       phoneTel: 'Telf.: 977 81 93 74',
       phoneMobile: 'Móvil: 686 98 95 85',
+      preferred: 'Método preferido',
       emailContact: 'montsecaltrucafort@gmail.com',
       address: 'C/ Major, 12',
       addressCity: '43372 La Bisbal de Falset (Tarragona)'
@@ -204,6 +205,7 @@ export const translations = {
       phoneCall: 'Call us',
       phoneTel: 'Phone: 977 81 93 74',
       phoneMobile: 'Mobile: 686 98 95 85',
+      preferred: 'Preferred method',
       emailContact: 'montsecaltrucafort@gmail.com',
       address: 'C/ Major, 12',
       addressCity: '43372 La Bisbal de Falset (Tarragona)'
@@ -305,6 +307,7 @@ export const translations = {
       phoneCall: 'Truca\'ns',
       phoneTel: 'Tel.: 977 81 93 74',
       phoneMobile: 'Mòbil: 686 98 95 85',
+      preferred: 'Mètode preferit',
       emailContact: 'montsecaltrucafort@gmail.com',
       address: 'C/ Major, 12',
       addressCity: '43372 La Bisbal de Falset (Tarragona)'
