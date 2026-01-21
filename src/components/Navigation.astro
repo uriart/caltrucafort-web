@@ -8,12 +8,20 @@ interface Props {
 const { lang = defaultLanguage } = Astro.props as Props;
 const currentLang = languages[lang as keyof typeof languages] ? lang : defaultLanguage;
 
+// Helper to build href based on language
+const buildHref = (page: string) => {
+  if (currentLang === 'es') {
+    return page === 'home' ? '/' : `/${page}`;
+  }
+  return page === 'home' ? `/${currentLang}/` : `/${currentLang}/${page}`;
+};
+
 const menuItems = [
-  { key: 'home', href: `/${currentLang}/` },
-  { key: 'rooms', href: `/${currentLang}/rooms` },
-  { key: 'cuisine', href: `/${currentLang}/cuisine` },
-  { key: 'activities', href: `/${currentLang}/activities` },
-  { key: 'contact', href: `/${currentLang}/contact` }
+  { key: 'home', href: buildHref('home') },
+  { key: 'rooms', href: buildHref('rooms') },
+  { key: 'cuisine', href: buildHref('cuisine') },
+  { key: 'activities', href: buildHref('activities') },
+  { key: 'contact', href: buildHref('contact') }
 ];
 
 const navLabels: Record<string, Record<string, string>> = {
@@ -350,12 +358,22 @@ const navLabels: Record<string, Record<string, string>> = {
         const pathParts = currentPath.split('/').filter(p => p);
         const currentLangInPath = pathParts[0];
         
-        // Construye la nueva ruta reemplazando el idioma
-        let newPath = currentPath.replace(`/${currentLangInPath}`, `/${selectedLang}`);
+        let newPath: string;
         
-        // Si la ruta no tiene idioma, lo añade
-        if (!newPath.startsWith(`/${selectedLang}`)) {
-          newPath = `/${selectedLang}${currentPath === '/' ? '' : currentPath}`;
+        if (selectedLang === 'es') {
+          // Para español, elimina el prefijo de idioma
+          if (['en', 'ca'].includes(currentLangInPath)) {
+            newPath = '/' + pathParts.slice(1).join('/');
+          } else {
+            newPath = currentPath;
+          }
+        } else {
+          // Para otros idiomas, reemplaza o añade el prefijo
+          if (['en', 'ca'].includes(currentLangInPath)) {
+            newPath = currentPath.replace(`/${currentLangInPath}`, `/${selectedLang}`);
+          } else {
+            newPath = `/${selectedLang}${currentPath === '/' ? '' : currentPath}`;
+          }
         }
         
         window.location.href = newPath;
