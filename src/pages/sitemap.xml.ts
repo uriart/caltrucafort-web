@@ -1,33 +1,38 @@
 export const GET = () => {
+  const base = 'https://caltrucafort.com';
+
   const pages = [
-    { url: '/es/', lang: 'es', priority: '1.0' },
-    { url: '/es/rooms', lang: 'es', priority: '0.9' },
-    { url: '/es/cuisine', lang: 'es', priority: '0.9' },
-    { url: '/es/activities', lang: 'es', priority: '0.9' },
-    { url: '/es/contact', lang: 'es', priority: '0.9' },
-    
-    { url: '/en/', lang: 'en', priority: '1.0' },
-    { url: '/en/rooms', lang: 'en', priority: '0.9' },
-    { url: '/en/cuisine', lang: 'en', priority: '0.9' },
-    { url: '/en/activities', lang: 'en', priority: '0.9' },
-    { url: '/en/contact', lang: 'en', priority: '0.9' },
-    
-    { url: '/ca/', lang: 'ca', priority: '1.0' },
-    { url: '/ca/rooms', lang: 'ca', priority: '0.9' },
-    { url: '/ca/cuisine', lang: 'ca', priority: '0.9' },
-    { url: '/ca/activities', lang: 'ca', priority: '0.9' },
-    { url: '/ca/contact', lang: 'ca', priority: '0.9' },
+    // Español (default, sin prefijo)
+    { url: '/', lang: 'es', alternates: ['/en/', '/ca/'] },
+    { url: '/rooms', lang: 'es', alternates: ['/en/rooms', '/ca/rooms'] },
+    { url: '/cuisine', lang: 'es', alternates: ['/en/cuisine', '/ca/cuisine'] },
+    { url: '/activities', lang: 'es', alternates: ['/en/activities', '/ca/activities'] },
+    { url: '/contact', lang: 'es', alternates: ['/en/contact', '/ca/contact'] },
+
+    // Inglés
+    { url: '/en/', lang: 'en', alternates: ['/', '/ca/'] },
+    { url: '/en/rooms', lang: 'en', alternates: ['/rooms', '/ca/rooms'] },
+    { url: '/en/cuisine', lang: 'en', alternates: ['/cuisine', '/ca/cuisine'] },
+    { url: '/en/activities', lang: 'en', alternates: ['/activities', '/ca/activities'] },
+    { url: '/en/contact', lang: 'en', alternates: ['/contact', '/ca/contact'] },
+
+    // Catalán
+    { url: '/ca/', lang: 'ca', alternates: ['/', '/en/'] },
+    { url: '/ca/rooms', lang: 'ca', alternates: ['/rooms', '/en/rooms'] },
+    { url: '/ca/cuisine', lang: 'ca', alternates: ['/cuisine', '/en/cuisine'] },
+    { url: '/ca/activities', lang: 'ca', alternates: ['/activities', '/en/activities'] },
+    { url: '/ca/contact', lang: 'ca', alternates: ['/contact', '/en/contact'] },
   ];
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${pages.map(page => `  <url>
-    <loc>https://caltrucafort.com${page.url}</loc>
-    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    <loc>${base}${page.url}</loc>
     <changefreq>weekly</changefreq>
-    <priority>${page.priority}</priority>
-    <xhtml:link rel="alternate" hreflang="${page.lang}" href="https://caltrucafort.com${page.url}" />
+${page.alternates.map(alt => `    <xhtml:link rel="alternate" hreflang="${alt.startsWith('/en') ? 'en' : alt.startsWith('/ca') ? 'ca' : 'es'}" href="${base}${alt}" />`).join('\n')}
+    <xhtml:link rel="alternate" hreflang="${page.lang}" href="${base}${page.url}" />
   </url>`).join('\n')}
 </urlset>`;
 
