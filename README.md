@@ -21,8 +21,8 @@ src/
 ├── layouts/
 │   └── Layout.astro          # Layout principal con footer
 ├── pages/
-│   ├── index.astro           # Redirección a /es/
-│   ├── es/, en/, ca/         # Páginas por idioma
+│   ├── index.astro           # Index /es
+│   ├── en/, ca/              # Páginas por idioma
 ├── styles/
 │   └── global.css            # Estilos globales y variables CSS
 └── i18n.ts                   # Sistema de traducciones
