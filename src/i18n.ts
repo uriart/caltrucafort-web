@@ -230,7 +230,7 @@ export const translations = {
       guestService: 'Dining service always available for staying guests.',
       contactDays: 'Monday to Friday',
       contactHours: '9:00 AM – 3:00 PM',
-      closedDays: 'Saturdays and Sundays:',
+      closedDays: 'Saturdays and Sundays',
       closed: 'Closed',
       ourSchedule: 'Our Hours'
     }
@@ -344,7 +344,7 @@ export const translations = {
       guestService: 'Servei de menjador sempre disponible per als hostes.',
       contactDays: 'De dilluns a divendres',
       contactHours: '9:00h – 15:00h',
-      closedDays: 'Dissabtes i Diumenges:',
+      closedDays: 'Dissabtes i Diumenges',
       closed: 'Tancat',
       ourSchedule: 'Els nostres horaris'
     }
