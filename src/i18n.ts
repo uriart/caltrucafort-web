@@ -67,7 +67,11 @@ export const translations = {
       dish5: 'Cordero al horno',
       dish5Desc: 'Cocinada a baja temperatura para mantener toda su ternura y sabor original.',
       dish6: 'Perdiz a la vinagreta',
-      dish6Desc: 'Un plato poco común, marinado con una fina salsa de verduras y aromas silvestres.'
+      dish6Desc: 'Un plato poco común, marinado con una fina salsa de verduras y aromas silvestres.',
+      dish7: 'Braó al forn',
+      dish7Desc: 'Un plato tradicional de la cocina catalana, cocinado al horno con hierbas aromáticas.',
+      dish8: 'Llom de porc amb pebre verd',
+      dish8Desc: 'Llom de cerdo asado con una salsa verde casera hecha con perejil y hierbas frescas.'
     },
     // Activities
     activities: {
@@ -181,7 +185,11 @@ export const translations = {
       dish5: 'Cordero al Horno',
       dish5Desc: 'Cooked at low temperature to preserve all its tenderness and original flavor.',
       dish6: 'Perdiz a la Vinagreta',
-      dish6Desc: 'An uncommon dish, marinated with a fine vegetable sauce and wild aromas.'
+      dish6Desc: 'An uncommon dish, marinated with a fine vegetable sauce and wild aromas.',
+      dish7: 'Braó al forn',
+      dish7Desc: 'A traditional Catalan dish, baked with aromatic herbs.',
+      dish8: 'Llom de porc amb pebre verd',
+      dish8Desc: 'Roast pork loin with a homemade green sauce made with parsley and fresh herbs.'
     },
     // Activities
     activities: {
@@ -295,7 +303,11 @@ export const translations = {
       dish5: 'Xai al Forn',
       dish5Desc: 'Cuinada a baixa temperatura per mantenir tota la seva tendresa i sabor original.',
       dish6: 'Perdiu a la Vinagreta',
-      dish6Desc: 'Un plat poc comú, marinada amb una fina salsa de verdures i aromes silvestres.'
+      dish6Desc: 'Un plat poc comú, marinada amb una fina salsa de verdures i aromes silvestres.',
+      dish7: 'Braó al forn',
+      dish7Desc: 'Un plat tradicional de la cuina catalana, cuinat al forn amb herbes aromàtiques.',
+      dish8: 'Llom de porc amb pebre verd',
+      dish8Desc: 'Llom de porc rostit amb una salsa verda casolana feta amb julivert i herbes fresques.'
     },
     // Activities
     activities: {

@@ -9,6 +9,8 @@ import galtes from '../assets/galtes.jpg';
 import civetSenglar from '../assets/civet-senglar.jpg';
 import xaiForn from '../assets/xai-forn.jpg';
 import perdiuVinagreta from '../assets/perdiu-vinagreta.jpg';
+import braoForn from '../assets/brao_forn.jpg';
+import llomPorc from '../assets/llom_porc_pebre_verd.jpeg';
 
 const t = useTranslation('es');
 ---
@@ -18,6 +20,7 @@ const t = useTranslation('es');
   title="Gastronomía - Caltrucafort"
   description={t('cuisine.description')}
 >
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fslightbox/3.4.1/index.min.js"></script>
   <div class="container">
     <!-- HERO -->
     <section class="hero">
@@ -27,7 +30,7 @@ const t = useTranslation('es');
         width={1920}
         height={1080}
         class="hero-image"
-        fetchpriority="high"
+        loading="lazy"
       />
       <div class="hero-content">
         <h1>{t('cuisine.title')}</h1>
@@ -45,7 +48,29 @@ const t = useTranslation('es');
       <h2 class="text-center mb-lg">Nuestros Platos Estrella</h2>
       <div class="grid grid-3">
         <div class="dish-card">
-          <Image class="card-image" src={suquetPeix} alt="Sequet de pescado" width={400} height={300} loading="lazy" />
+          <a data-fslightbox="gallery" href={braoForn.src}>
+            <Image class="card-image" src={braoForn} alt="Braó al forn" width={400} height={300} loading="lazy" />
+          </a>
+          <div class="card-content">
+            <h3>{t('cuisine.dish7')}</h3>
+            <p>{t('cuisine.dish7Desc')}</p>
+          </div>
+        </div>
+
+        <div class="dish-card">
+          <a data-fslightbox="gallery" href={llomPorc.src}>
+            <Image class="card-image" src={llomPorc} alt="Llom de porc amb pebre verd" width={400} height={300} loading="lazy" />
+          </a>
+          <div class="card-content">
+            <h3>{t('cuisine.dish8')}</h3>
+            <p>{t('cuisine.dish8Desc')}</p>
+          </div>
+        </div>
+
+        <div class="dish-card">
+          <a data-fslightbox="gallery" href={suquetPeix.src}>
+            <Image class="card-image" src={suquetPeix} alt="Sequet de pescado" width={400} height={300} loading="lazy" />
+          </a>
           <div class="card-content">
             <h3>{t('cuisine.dish1')}</h3>
             <p>{t('cuisine.dish1Desc')}</p>
@@ -53,7 +78,9 @@ const t = useTranslation('es');
         </div>
 
         <div class="dish-card">
-          <Image class="card-image" src={cargolsLlauna} alt="Caracoles a la llauna" width={400} height={300} loading="lazy" />
+          <a data-fslightbox="gallery" href={cargolsLlauna.src}>
+            <Image class="card-image" src={cargolsLlauna} alt="Caracoles a la llauna" width={400} height={300} loading="lazy" />
+          </a>
           <div class="card-content">
             <h3>{t('cuisine.dish2')}</h3>
             <p>{t('cuisine.dish2Desc')}</p>
@@ -61,7 +88,9 @@ const t = useTranslation('es');
         </div>
 
         <div class="dish-card">
-          <Image class="card-image" src={galtes} alt="Carrilleras" width={400} height={300} loading="lazy" />
+          <a data-fslightbox="gallery" href={galtes.src}>
+            <Image class="card-image" src={galtes} alt="Carrilleras" width={400} height={300} loading="lazy" />
+          </a>
           <div class="card-content">
             <h3>{t('cuisine.dish3')}</h3>
             <p>{t('cuisine.dish3Desc')}</p>
@@ -69,7 +98,9 @@ const t = useTranslation('es');
         </div>
 
         <div class="dish-card">
-          <Image class="card-image" src={civetSenglar} alt="Civet de jabalí" width={400} height={300} loading="lazy" />
+          <a data-fslightbox="gallery" href={civetSenglar.src}>
+            <Image class="card-image" src={civetSenglar} alt="Civet de jabalí" width={400} height={300} loading="lazy" />
+          </a>
           <div class="card-content">
             <h3>{t('cuisine.dish4')}</h3>
             <p>{t('cuisine.dish4Desc')}</p>
@@ -77,7 +108,9 @@ const t = useTranslation('es');
         </div>
 
         <div class="dish-card">
-          <Image class="card-image" src={xaiForn} alt="Cordero al horno" width={400} height={300} loading="lazy" />
+          <a data-fslightbox="gallery" href={xaiForn.src}>
+            <Image class="card-image" src={xaiForn} alt="Cordero al horno" width={400} height={300} loading="lazy" />
+          </a>
           <div class="card-content">
             <h3>{t('cuisine.dish5')}</h3>
             <p>{t('cuisine.dish5Desc')}</p>
@@ -85,7 +118,9 @@ const t = useTranslation('es');
         </div>
 
         <div class="dish-card">
-          <Image class="card-image" src={perdiuVinagreta} alt="Perdiz a la vinagreta" width={400} height={300} loading="lazy" />
+          <a data-fslightbox="gallery" href={perdiuVinagreta.src}>
+            <Image class="card-image" src={perdiuVinagreta} alt="Perdiz a la vinagreta" width={400} height={300} loading="lazy" />
+          </a>
           <div class="card-content">
             <h3>{t('cuisine.dish6')}</h3>
             <p>{t('cuisine.dish6Desc')}</p>
@@ -106,12 +141,12 @@ const t = useTranslation('es');
       <p>Seleccionamos los mejores productos para que practiques las recetas tradicionales:</p>
       <div class="amazon-items">
         <div class="item-aff">
-          <img src="https://m.media-amazon.com/images/I/71y2nzq1UJL._AC_UL320_.jpg" style="width:80px; height:80px; object-fit:contain;">
+          <img src="https://m.media-amazon.com/images/I/71y2nzq1UJL._AC_UL320_.jpg" style="width:80px; height:80px; object-fit:contain;"  alt="Receptes catalanes">
           <h4 style="font-size:14px; margin:10px 0;">Recetas Catalanas</h4>
           <a href="https://amzn.to/49HvILs" target="_blank" style="background:#FF9900; color:black; padding:10px; display:block; text-decoration:none; border-radius:5px; font-weight:bold; font-size:12px;">Ver en Amazon</a>
         </div>
         <div class="item-aff">
-          <img src="https://m.media-amazon.com/images/I/815DWslaDjL._AC_UL320_.jpg" style="width:80px; height:80px; object-fit:contain;">
+          <img src="https://m.media-amazon.com/images/I/815DWslaDjL._AC_UL320_.jpg" style="width:80px; height:80px; object-fit:contain;" alt="Receptes catalanes2">
           <h4 style="font-size:14px; margin:10px 0;">Libro Cocina Catalana</h4>
           <a href="https://amzn.to/4bFzqHP" target="_blank" style="background:#FF9900; color:black; padding:10px; display:block; text-decoration:none; border-radius:5px; font-weight:bold; font-size:12px;">Ver en Amazon</a>
         </div>
@@ -276,4 +311,18 @@ const t = useTranslation('es');
   .item-aff a:hover {
     background: #e68900 !important;
   }
+  .dish-card a {
+  display: block;
+  cursor: zoom-in;
+  overflow: hidden;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.card-image {
+  transition: transform var(--transition-normal);
+}
+
+.dish-card a:hover .card-image {
+  transform: scale(1.05);
+}
 </style>
