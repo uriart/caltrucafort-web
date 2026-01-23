@@ -106,7 +106,19 @@ export const translations = {
       preferred: 'Método preferido',
       emailContact: 'montsecaltrucafort@gmail.com',
       address: 'C/ Major, 12',
-      addressCity: '43372 La Bisbal de Falset (Tarragona)'
+      addressCity: '43372 La Bisbal de Falset (Tarragona)',
+      restaurantTitle: 'Restaurante',
+      restaurantSchedule: 'Lunes a viernes de 9h a 15h. Sábados y domingos cerrado.',
+      summerScheduleTitle: 'Horario de verano',
+      summerScheduleNote: 'Sábados abiertos de 9h a 15h (de julio a septiembre).',
+      ruralHouseTitle: 'Casa rural y habitaciones',
+      ruralHouseSchedule: 'Abierto todo el año.',
+      guestService: 'Servicio de comedor siempre disponible para los huéspedes.',
+      contactDays: 'De lunes a viernes',
+      contactHours: '9:00h – 15:00h',
+      closedDays: 'Sábados y Domingos',
+      closed: 'Cerrado',
+      ourSchedule: 'Nuestros horarios'
     }
   },
   en: {
@@ -208,7 +220,19 @@ export const translations = {
       preferred: 'Preferred method',
       emailContact: 'montsecaltrucafort@gmail.com',
       address: 'C/ Major, 12',
-      addressCity: '43372 La Bisbal de Falset (Tarragona)'
+      addressCity: '43372 La Bisbal de Falset (Tarragona)',
+      restaurantTitle: 'Restaurant',
+      restaurantSchedule: 'Monday to Friday from 9:00 AM to 3:00 PM. Closed on Saturdays and Sundays.',
+      summerScheduleTitle: 'Summer Hours',
+      summerScheduleNote: 'Open Saturdays from 9:00 AM to 3:00 PM (July to September).',
+      ruralHouseTitle: 'Country House and Rooms',
+      ruralHouseSchedule: 'Open all year round.',
+      guestService: 'Dining service always available for staying guests.',
+      contactDays: 'Monday to Friday',
+      contactHours: '9:00 AM – 3:00 PM',
+      closedDays: 'Saturdays and Sundays:',
+      closed: 'Closed',
+      ourSchedule: 'Our Hours'
     }
   },
   ca: {
@@ -310,7 +334,19 @@ export const translations = {
       preferred: 'Mètode preferit',
       emailContact: 'montsecaltrucafort@gmail.com',
       address: 'C/ Major, 12',
-      addressCity: '43372 La Bisbal de Falset (Tarragona)'
+      addressCity: '43372 La Bisbal de Falset (Tarragona)',
+      restaurantTitle: 'Restaurant',
+      restaurantSchedule: 'Dilluns a divendres de 9h a 15h. Dissabtes i diumenges tancat.',
+      summerScheduleTitle: 'Horari d\'estiu',
+      summerScheduleNote: 'Dissabtes oberts de 9h a 15h (de juliol a setembre).',
+      ruralHouseTitle: 'Casa rural i habitacions',
+      ruralHouseSchedule: 'Obert tot l\'any.',
+      guestService: 'Servei de menjador sempre disponible per als hostes.',
+      contactDays: 'De dilluns a divendres',
+      contactHours: '9:00h – 15:00h',
+      closedDays: 'Dissabtes i Diumenges:',
+      closed: 'Tancat',
+      ourSchedule: 'Els nostres horaris'
     }
   }
 };
