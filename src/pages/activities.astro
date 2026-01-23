@@ -3,6 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import { useTranslation } from '../i18n';
 import { Image } from 'astro:assets';
 import activitats_portada from '../assets/rock-climbing.jpg';
+import wine from '../assets/wine.jpg';
+import rappelling from '../assets/rappelling.jpg';
 
 const t = useTranslation('es');
 ---
@@ -42,7 +44,12 @@ const t = useTranslation('es');
         </div>
 
         <div class="imagen-bloque">
-          <img src="https://MyBlog-c8ewh8hmm2.live-website.com/wp-content/uploads/2023/01/wines-g169915ad1_1280.jpg">
+          <Image 
+            src={wine} 
+            alt="Wine"
+            class="card-image"
+            fetchpriority="high"
+          />
         </div>
 
         <div class="amazon-card-mini">
@@ -58,7 +65,12 @@ const t = useTranslation('es');
         </div>
 
         <div class="imagen-bloque">
-          <img src="https://MyBlog-c8ewh8hmm2.live-website.com/wp-content/uploads/2023/01/rappelling-g1aa8b4681_1280.jpg">
+          <Image 
+            src={rappelling} 
+            alt="Rappelling"
+            class="card-image"
+            fetchpriority="high"
+          />
         </div>
 
         <div class="amazon-card-mini">
@@ -133,7 +145,7 @@ const t = useTranslation('es');
   }
 
   /* Image Block */
-  .imagen-bloque img {
+  .imagen-bloque Image {
     width: 100%;
     border-radius: 12px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
@@ -141,7 +153,7 @@ const t = useTranslation('es');
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
-  .imagen-bloque img:hover {
+  .card-image:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
   }
