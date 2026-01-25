@@ -253,5 +253,32 @@ const t = useTranslation('es');
     color: #333;
   }
 
-  /* Removed unused styles */
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .seccion-actividad {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      padding: 2.5rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .seccion-actividad {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding: 1.5rem;
+    }
+
+    .activities-main {
+      gap: 2rem;
+    }
+
+    .cta-section h2 {
+      font-size: 24px;
+    }
+
+    .description-text {
+      font-size: 16px;
+    }
+  }
 </style>
